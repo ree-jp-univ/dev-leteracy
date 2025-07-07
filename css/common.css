@@ -31,6 +31,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 70px;
+    position: relative;
 }
 
 .header-logo img {
@@ -68,6 +69,25 @@ body {
     background-image: url('../images/common/icon-menu.png');
     background-size: contain;
     background-repeat: no-repeat;
+    position: relative;
+}
+
+/* ハンバーガーメニューアイコンのフォールバック */
+.toggle-menu-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 2px;
+    background-color: #333;
+    box-shadow: 0 -6px 0 #333, 0 6px 0 #333;
+}
+
+.toggle-menu-button:hover::before {
+    background-color: #007bff;
+    box-shadow: 0 -6px 0 #007bff, 0 6px 0 #007bff;
 }
 
 /* メインコンテンツ */
@@ -112,6 +132,17 @@ body {
 @media (max-width: 768px) {
     .header-site-menu {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    
+    .header-site-menu.is-show {
+        display: block;
     }
     
     .toggle-menu-button {
@@ -120,6 +151,25 @@ body {
     
     .site-menu ul {
         flex-direction: column;
-        gap: 15px;
+        gap: 0;
+        padding: 10px 0;
+    }
+    
+    .site-menu li {
+        border-bottom: 1px solid #eee;
+    }
+    
+    .site-menu li:last-child {
+        border-bottom: none;
+    }
+    
+    .site-menu a {
+        display: block;
+        padding: 15px 20px;
+        color: #333;
+    }
+    
+    .site-menu a:hover {
+        background-color: #f8f9fa;
     }
 }
