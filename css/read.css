@@ -1,0 +1,95 @@
+/* 小説読書ページ専用スタイル */
+.novel-reader {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* 小説ヘッダー */
+.novel-header {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 30px;
+}
+
+.novel-header .novel-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.novel-header .novel-author {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.novel-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* 本文コンテンツ */
+.text-content {
+    line-height: 1.8;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.text-content p {
+    margin-bottom: 20px;
+    text-indent: 1em;
+}
+
+/* 戻るボタン */
+.back-to-list {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .novel-reader {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .novel-header .novel-title {
+        font-size: 24px;
+    }
+    
+    .novel-header .novel-author {
+        font-size: 16px;
+    }
+    
+    .text-content {
+        font-size: 14px;
+    }
+}

@@ -40,6 +40,71 @@
     margin-left: 0;
 }
 
+/* 小説アイテム用のスタイル */
+.novel-item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+}
+
+.novel-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.novel-info {
+    text-align: left;
+}
+
+.novel-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.novel-author {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.novel-description {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.read-button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.read-button:hover {
+    background-color: #0056b3;
+}
+
+/* レスポンシブ対応 */
 @media (max-width: 800px) {
     .member-list {
         padding-left: 20px;
@@ -49,5 +114,9 @@
     .member-list li {
         width: 220px;
         margin-left: 30px;
+    }
+    
+    .novel-item {
+        max-width: 250px;
     }
 }

@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>小説の表示</title>
-        <meta name="description" content="小説の表示">
+        <title>小説を読む</title>
+        <meta name="description" content="小説を読む">
         <meta name="viewport" content="width=device-width">
         <script src="js/script.js"></script>
         <link href="css/common.css" rel="stylesheet">
-        <link href="css/members.css" rel="stylesheet">    
+        <link href="css/read.css" rel="stylesheet">    
     </head>
     <body>
         <header class="header">
@@ -21,26 +21,33 @@
                         <ul>
                             <li><a href="concept.html">メインメニュー</a></li>
                             <li><a href="members.html">小説の投稿</a></li>
-                            <li><a href="access.html">小説一覧</a></li>
+                            <li><a href="preview.html">小説一覧</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
         <main class="main">
-            <div class="members">
-                <h2>小説一覧</h2>
-                <ul class="member-list">
-                    <li class="novel-item">
-                        <div class="novel-info">
-                            <h3 class="novel-title">サンプル小説タイトル</h3>
-                            <p class="novel-author">作者名</p>
-                            <p class="novel-description">小説の説明文がここに入ります...</p>
-                            <a href="read.html?id=1" class="read-button">読む</a>
-                        </div>
-                    </li>
-                    <!-- 他の小説アイテムも同様に追加 -->
-                </ul>
+            <div class="novel-reader">
+                <div class="novel-header">
+                    <h1 class="novel-title" id="novelTitle">小説タイトル</h1>
+                    <p class="novel-author" id="novelAuthor">作者名</p>
+                    <div class="novel-meta">
+                        <span class="publish-date" id="publishDate">2025年7月7日</span>
+                    </div>
+                </div>
+                
+                <div class="novel-content">
+                    <div class="text-content" id="textContent">
+                        <p>これは小説の本文です。ここに実際の小説のテキストが表示されます。</p>
+                        <p>段落が続きます。読みやすいように適切な行間と文字サイズが設定されています。</p>
+                        <p>小説の内容が続きます...</p>
+                    </div>
+                </div>
+                
+                <div class="back-to-list">
+                    <a href="preview.html" class="back-button">← 小説一覧に戻る</a>
+                </div>
             </div>
         </main>
         <footer class="footer">
@@ -48,7 +55,7 @@
                 <ul>
                     <li><a href="concept.html">メインメニュー</a></li>
                     <li><a href="members.html">小説の投稿</a></li>
-                    <li><a href="access.html">小説一覧</a></li>
+                    <li><a href="preview.html">小説一覧</a></li>
                 </ul>
             </nav>
             <a class="footer-logo" href="index.html">
