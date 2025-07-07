@@ -4,3 +4,11 @@
     text-align: center;
 }
 
+.first-view-text h1 span {
+    display: inline-block;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
