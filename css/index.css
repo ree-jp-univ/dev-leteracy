@@ -2,5 +2,31 @@
 
 .first-view-text h1 {
     text-align: center;
+    font-family: 'WDXL Lubrifont JP N', sans-serif; /* Google Fontsを使用 */
+}
+
+.first-view-text h1 span {
+    display: inline-block;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.site-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* 項目間のスペース */
+}
+
+.site-menu ul li {
+    margin: 0;
+}
+
+.site-menu ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
 }
 
