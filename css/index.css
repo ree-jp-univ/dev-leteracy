@@ -77,7 +77,7 @@ img {
     padding-left: 40px;
     padding-right: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* space-between から flex-start に変更 */
     align-items: center;
 }
 
@@ -141,6 +141,7 @@ img {
         padding-top: 30px;
         padding-bottom: 50px;
         display: none;
+        margin-left: 20px; /* ロゴとメニューの間隔を調整 */
     }
 
     .header-site-menu.is-show {
