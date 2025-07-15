@@ -69,20 +69,28 @@ img {
     max-width: 100%;
 }
 
+.header {
+    background-image: url(../images/common/book1.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 170px auto; /* 元の画像サイズに合わせる */
+}
+
 .header-inner {
     max-width: 1200px;
     height: 110px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 40px;
+    padding-left: 200px; /* 背景画像の幅分だけ左パディングを追加 */
     padding-right: 40px;
     display: flex;
     justify-content: flex-start; /* space-between から flex-start に変更 */
     align-items: center;
 }
 
+
 .toggle-menu-button {
-    display: none;
+    display: none; /* 常に非表示 */
 }
 
 .header-logo {
@@ -90,92 +98,49 @@ img {
     width: 170px;
 }
 
+.header-site-menu {
+    display: block; /* 常に表示 */
+    margin-left: 0; /* 左マージンをリセット */
+}
+
 .site-menu ul {
     display: flex;
+    justify-content: flex-start; /* 左詰めに設定 */
 }
 
 .site-menu ul li {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 0; /* 左マージンを削除 */
+    margin-right: 20px; /* 右マージンのみ設定 */
 }
 
-.site-menu ul li a {
-    font-family: 'WDXL Lubrifont JP N', sans-serif; /* 修正 */
+.site-menu ul li:first-child {
+    margin-left: 0; /* 最初の要素の左マージンを確実に削除 */
 }
 
 @media (max-width: 800px) {
-    .site-menu ul {
-        display: block;
-        text-align: center;
-    }
-
-    .site-menu li {
-        margin-top: 20px;
-    }
-
-    .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: #ffffff;
-        height: 50px;
-        z-index: 10;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    }
-
     .header-inner {
-        padding-left: 20px;
-        padding-right: 20px;
-        height: 100%;
-        position: relative;
+        justify-content: space-between; /* モバイルでも横並び */
+    }
+    
+    .site-menu ul {
+        display: flex; /* モバイルでもフレックス表示 */
     }
 
-    .header-site-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        color: #ffffff;
-        background-color: #736e62;
-        padding-top: 30px;
-        padding-bottom: 50px;
-        display: none;
-        margin-left: 20px; /* ロゴとメニューの間隔を調整 */
-    }
-
-    .header-site-menu.is-show {
-        display: block;
-    }
-
-    .header-logo {
-        width: 100px;
-    }
-
-    .main {
-        padding-top: 50px; /* 修正 */
-    }
-
-    .footer-logo {
-        margin-top: 60px;
-    }
-
-    .copyright {
-        margin-top: 50px;
+    .site-menu ul li {
+        margin-left: 10px; /* モバイルでは間隔を狭める */
+        margin-right: 10px;
     }
 
     .toggle-menu-button {
-        display: block;
-        width: 44px;
-        height: 34px;
-        background-image: url(../images/common/icon-menu.png);
-        background-size: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: transparent;
-        border: none;
-        border-radius: 0;
-        outline: none;
+        display: none; /* モバイルでも非表示 */
+    }
+
+    .header-site-menu {
+        position: static; /* 絶対位置指定を解除 */
+        display: block; /* 常に表示 */
+        background-color: transparent; /* 背景色をリセット */
+        padding: 0; /* パディングをリセット */
+        color: inherit; /* 色をリセット */
     }
 }
 .footer {
