@@ -1,0 +1,190 @@
+@charset "utf-8";
+
+nav.floating {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    background-color: #d0d0d0;
+}
+
+.first-view {
+    height: calc(100vh - 110px);
+    background-image: url(../images/index/bg_main.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.first-view-text {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px; /* 修正 */
+    padding-bottom: 80px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px #4b2c14;
+}
+
+.first-view-text h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 56px;
+    line-height: 72px;
+}
+
+.first-view-text p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 16pt;
+    color: #000000;
+    line-height: 1;
+    background-color: #ffffff;
+}
+
+img {
+    max-width: 100%;
+}
+
+.header {
+    background-image: url(../images/common/book1.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 170px auto; /* 元の画像サイズに合わせる */
+}
+
+.header-inner {
+    max-width: 1200px;
+    height: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 200px; /* 背景画像の幅分だけ左パディングを追加 */
+    padding-right: 40px;
+    display: flex;
+    justify-content: flex-start; /* space-between から flex-start に変更 */
+    align-items: center;
+}
+
+
+.toggle-menu-button {
+    display: none; /* 常に非表示 */
+}
+
+.header-logo {
+    display: block;
+    width: 170px;
+}
+
+.header-site-menu {
+    display: block; /* 常に表示 */
+    margin-left: 0; /* 左マージンをリセット */
+}
+
+.site-menu ul {
+    display: flex;
+    justify-content: flex-start; /* 左詰めに設定 */
+}
+
+.site-menu ul li {
+    margin-left: 0; /* 左マージンを削除 */
+    margin-right: 20px; /* 右マージンのみ設定 */
+}
+
+.site-menu ul li:first-child {
+    margin-left: 0; /* 最初の要素の左マージンを確実に削除 */
+}
+
+@media (max-width: 800px) {
+    .header-inner {
+        justify-content: space-between; /* モバイルでも横並び */
+    }
+    
+    .site-menu ul {
+        display: flex; /* モバイルでもフレックス表示 */
+    }
+
+    .site-menu ul li {
+        margin-left: 10px; /* モバイルでは間隔を狭める */
+        margin-right: 10px;
+    }
+
+    .toggle-menu-button {
+        display: none; /* モバイルでも非表示 */
+    }
+
+    .header-site-menu {
+        position: static; /* 絶対位置指定を解除 */
+        display: block; /* 常に表示 */
+        background-color: transparent; /* 背景色をリセット */
+        padding: 0; /* パディングをリセット */
+        color: inherit; /* 色をリセット */
+    }
+}
+.footer {
+    color: #ffffff;
+    background-color: #24211b;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    display: block;
+    width: 235px;
+    margin-top: 90px;
+}
+
+.copyright {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 90px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.post-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post-button:hover {
+    background-color: #0056b3;
+}
