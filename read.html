@@ -1,67 +1,95 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>小説を読む</title>
-        <meta name="description" content="小説を読む">
-        <meta name="viewport" content="width=device-width">
-        <script src="js/script.js"></script>
-        <link href="css/common.css" rel="stylesheet">
-        <link href="css/read.css" rel="stylesheet">    
-    </head>
-    <body>
-        <header class="header">
-            <div class="header-inner">
-                <a class="header-logo" href="index.html">
-                    <img src="images/common/logo.png" alt="ロゴ">
-                </a>
-                <button class="toggle-menu-button"></button>
-                <div class="header-site-menu">
-                    <nav class="site-menu">
-                        <ul>
-                            <li><a href="concept.html">メインメニュー</a></li>
-                            <li><a href="members.html">小説の投稿</a></li>
-                            <li><a href="preview.html">小説一覧</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <main class="main">
-            <div class="novel-reader">
-                <div class="novel-header">
-                    <h1 class="novel-title" id="novelTitle">小説タイトル</h1>
-                    <p class="novel-author" id="novelAuthor">作者名</p>
-                    <div class="novel-meta">
-                        <span class="publish-date" id="publishDate">2025年7月7日</span>
-                    </div>
-                </div>
-                
-                <div class="novel-content">
-                    <div class="text-content" id="textContent">
-                        <p>小説の本文はここに表示されます。</p>
-                        <p></p>
-                        <p></p>
-                    </div>
-                </div>
-                
-                <div class="back-to-list">
-                    <a href="preview.html" class="back-button">← 小説一覧に戻る</a>
-                </div>
-            </div>
-        </main>
-        <footer class="footer">
-            <nav class="site-menu">
-                <ul>
-                    <li><a href="concept.html">メインメニュー</a></li>
-                    <li><a href="members.html">小説の投稿</a></li>
-                    <li><a href="preview.html">小説一覧</a></li>
-                </ul>
-            </nav>
-            <a class="footer-logo" href="index.html">
-                <img src="images/common/logo_footer.png" alt="ロゴ">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小説を読む</title>
+    <meta name="description" content="小説を読む">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/articles.js"></script>
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/read.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a class="header-logo" href="index.html">
+                <img src="images/common/logo.png" alt="ロゴ">
             </a>
-            <p class="copyright"><small>&copy;名城大学情報工学部(嘘)</small></p>
-        </footer>
-    </body>
+            <button class="toggle-menu-button"></button>
+            <div class="header-site-menu">
+                <nav class="site-menu">
+                    <ul>
+                        <li><a href="concept.html">メインメニュー</a></li>
+                        <li><a href="members.html">小説の投稿</a></li>
+                        <li><a href="preview.html">小説一覧</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="novel-reader">
+            <div class="novel-header">
+                <h1 class="novel-title" id="novelTitle">小説タイトル</h1>
+                <p class="novel-author" id="novelAuthor">作者名</p>
+                <div class="novel-meta">
+                    <span class="publish-date" id="publishDate">2025年7月7日</span>
+                </div>
+            </div>
+
+            <div class="novel-content">
+                <div class="text-content" id="textContent">
+                    <p>小説の本文はここに表示されます。</p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="back-to-list">
+                <a href="preview.html" class="back-button">← 小説一覧に戻る</a>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <nav class="site-menu">
+            <ul>
+                <li><a href="concept.html">メインメニュー</a></li>
+                <li><a href="members.html">小説の投稿</a></li>
+                <li><a href="preview.html">小説一覧</a></li>
+            </ul>
+        </nav>
+        <a class="footer-logo" href="index.html">
+            <img src="images/common/logo_footer.png" alt="ロゴ">
+        </a>
+        <p class="copyright"><small>&copy;名城大学情報工学部(嘘)</small></p>
+    </footer>
+</body>
+
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        // URLパラメータからidを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+
+        const article = await loadArticle(id);
+
+        console.log(article);
+
+        const novelTitleElement = $('#novelTitle');
+        const novelAuthorElement = $('#novelAuthor');
+        const publishDateElement = $('#publishDate');
+        const textContentElement = $('#textContent');
+
+        novelTitleElement.text(article.title);
+        novelAuthorElement.text(article.author);
+        publishDateElement.text(article.publishDate);
+        textContentElement.html(marked.parse(article.content));
+    });
+</script>

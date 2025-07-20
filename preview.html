@@ -1,60 +1,86 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>小説一覧</title>
-        <meta name="description" content="小説の一覧">
-        <meta name="viewport" content="width=device-width">
-        <script src="js/script.js"></script>
-        <link href="css/common.css" rel="stylesheet">
-        <link href="css/members.css" rel="stylesheet">    
-    </head>
-    <body>
-        <header class="header">
-            <div class="header-inner">
-                <a class="header-logo" href="index.html">
-                    <img src="images/common/logo.png" alt="ロゴ">
-                </a>
-                <button class="toggle-menu-button"></button>
-                <div class="header-site-menu">
-                    <nav class="site-menu">
-                        <ul>
-                            <li><a href="concept.html">メインメニュー</a></li>
-                            <li><a href="members.html">小説の投稿</a></li>
-                            <li><a href="access.html">小説一覧</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <main class="main">
-            <div class="members">
-                <h2>小説一覧</h2>
-                <ul class="member-list">
-                    <li class="novel-item">
-                        <div class="novel-info">
-                            <h3 class="novel-title">タイトル</h3>
-                            <p class="novel-author">作者名</p>
-                            <p class="novel-description">小説の説明文</p>
-                            <a href="read.html?id=1" class="read-button">読む</a>
-                        </div>
-                    </li>
-                    <!-- 他の小説アイテムも同様に追加 -->
-                </ul>
-            </div>
-        </main>
-        <footer class="footer">
-            <nav class="site-menu">
-                <ul>
-                    <li><a href="concept.html">メインメニュー</a></li>
-                    <li><a href="members.html">小説の投稿</a></li>
-                    <li><a href="access.html">小説一覧</a></li>
-                </ul>
-            </nav>
-            <a class="footer-logo" href="index.html">
-                <img src="images/common/logo_footer.png" alt="ロゴ">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小説一覧</title>
+    <meta name="description" content="小説の一覧">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/articles.js"></script>
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/members.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a class="header-logo" href="index.html">
+                <img src="images/common/logo.png" alt="ロゴ">
             </a>
-            <p class="copyright"><small>&copy;名城大学情報工学部(嘘)</small></p>
-        </footer>
-    </body>
+            <button class="toggle-menu-button"></button>
+            <div class="header-site-menu">
+                <nav class="site-menu">
+                    <ul>
+                        <li><a href="concept.html">メインメニュー</a></li>
+                        <li><a href="members.html">小説の投稿</a></li>
+                        <li><a href="access.html">小説一覧</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="members">
+            <h2>小説一覧</h2>
+            <ul class="member-list">
+                <h1>読み込み中...</h1>
+                <!-- 他の小説アイテムも同様に追加 -->
+            </ul>
+        </div>
+    </main>
+    <footer class="footer">
+        <nav class="site-menu">
+            <ul>
+                <li><a href="concept.html">メインメニュー</a></li>
+                <li><a href="members.html">小説の投稿</a></li>
+                <li><a href="access.html">小説一覧</a></li>
+            </ul>
+        </nav>
+        <a class="footer-logo" href="index.html">
+            <img src="images/common/logo_footer.png" alt="ロゴ">
+        </a>
+        <p class="copyright"><small>&copy;名城大学情報工学部(嘘)</small></p>
+    </footer>
+</body>
+
 </html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        const articles = await loadArticles();
+
+        console.log(articles);
+
+        const articlesListElement = $('.member-list');
+
+        if (articles.length === 0) {
+            articlesListElement.html('記事が見つかりませんでした。');
+            return;
+        } else {
+            articlesListElement.html('');
+        }
+
+        for (const article of articles) {
+            articlesListElement.append(`<li class="novel-item">
+                <div class="novel-info">
+                    <h3 class="novel-title">${article.title}</h3>
+                    <p class="novel-author">${article.author}</p>
+                    <p class="novel-description">${article.content.substring(0, 100)}...</p>
+                    <a href="read.html?id=${article.slug}" class="read-button">読む</a>
+                </div>
+            </li>`);
+        }
+    });
+</script>
