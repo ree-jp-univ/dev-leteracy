@@ -275,38 +275,4 @@ img {
     }
 }
 
-/* 小さなモバイル画面対応 */
-@media (max-width: 480px) {
-    .header-inner {
-        height: 100px;
-        padding: 10px 15px;
-    }
 
-    .header-logo {
-        width: 100px;
-    }
-
-    .site-menu ul li a {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    .main-content h1 {
-        font-size: 28px;
-        line-height: 36px;
-    }
-
-    .main-content p {
-        font-size: 14px;
-    }
-
-    .footer-logo {
-        width: 150px;
-        margin-top: 25px;
-    }
-
-    .copyright {
-        font-size: 11px;
-        margin-top: 25px;
-    }
-}
