@@ -30,7 +30,7 @@
     </header>
     <main class="main">
         <div class="members">
-            <h2>小説一覧</h2>
+            <h2 id="author-name">小説一覧</h2>
             <ul class="member-list">
                 <h1>読み込み中...</h1>
                 <!-- 他の小説アイテムも同様に追加 -->
@@ -56,9 +56,13 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', async function () {
-        const articles = await loadArticles();
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        const articles = (await loadArticles())
+                            .filter(article => article.author === id);
 
-        console.log(articles);
+        const authorNameElement = $('#author-name');
+        authorNameElement.text(id + 'の小説一覧');
 
         const articlesListElement = $('.member-list');
 

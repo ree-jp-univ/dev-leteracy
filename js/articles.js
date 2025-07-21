@@ -12,6 +12,12 @@ async function loadArticles() {
         articles.push(await loadArticle(slug));
     }
 
+    // ランダムで並び替え
+    for (let i = articles.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [articles[i], articles[j]] = [articles[j], articles[i]];
+    }
+
     return articles;
 }
 

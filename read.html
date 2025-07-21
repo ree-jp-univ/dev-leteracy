@@ -17,15 +17,12 @@
 <body>
     <header class="header">
         <div class="header-inner">
-            <a class="header-logo" href="index.html">
-                <img src="images/common/logo.png" alt="ロゴ">
-            </a>
             <button class="toggle-menu-button"></button>
             <div class="header-site-menu">
                 <nav class="site-menu">
                     <ul>
-                        <li><a href="concept.html">メインメニュー</a></li>
-                        <li><a href="members.html">小説の投稿</a></li>
+                        <li><a href="index.html">メインメニュー</a></li>
+                        <li><a href="post.html">小説の投稿</a></li>
                         <li><a href="preview.html">小説一覧</a></li>
                     </ul>
                 </nav>
@@ -58,8 +55,8 @@
     <footer class="footer">
         <nav class="site-menu">
             <ul>
-                <li><a href="concept.html">メインメニュー</a></li>
-                <li><a href="members.html">小説の投稿</a></li>
+                <li><a href="index.html">メインメニュー</a></li>
+                <li><a href="post.html">小説の投稿</a></li>
                 <li><a href="preview.html">小説一覧</a></li>
             </ul>
         </nav>
@@ -88,7 +85,7 @@
         const textContentElement = $('#textContent');
 
         novelTitleElement.text(article.title);
-        novelAuthorElement.text(article.author);
+        novelAuthorElement.html('<a href="author.html?id=' + article.author + '">' + article.author + '</a>');
         publishDateElement.text(article.publishDate);
         textContentElement.html(marked.parse(article.content));
     });
