@@ -122,7 +122,6 @@ img {
 }
 
 .header {
-    background-image: url(../images/common/book1.png);
     background-repeat: no-repeat;
     background-position: left center;
     background-size: 170px auto; /* 元の画像サイズに合わせる */
