@@ -7,6 +7,58 @@ nav.floating {
     background-color: #d0d0d0;
 }
 
+/* 全体の基本設定 */
+body {
+    font-family: sans-serif;
+    background-color: #F9FAFB; /* bg-gray-50 */
+    margin: 0;
+}
+
+/* ヘッダーとフッターの基本的なスタイル（仮） */
+.header, .footer {
+    padding: 1rem;
+    background-color: #FFFFFF;
+}
+.footer {
+    background-color: #1F2937; /* bg-gray-800 */
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.5rem;
+}
+
+.main {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* ボタンを中央に配置するためのコンテナのスタイル */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* 投稿ボタンのスタイル */
+.post-button {
+    background-color: #2563EB; /* bg-blue-600 */
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 2.5rem; /* py-3 px-10 */
+    border-radius: 9999px; /* rounded-full */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* ボタンにマウスカーソルが乗った時のスタイル */
+.post-button:hover {
+    background-color: #1D4ED8; /* hover:bg-blue-700 */
+    transform: scale(1.05); /* hover:scale-105 */
+}
+
 .first-view {
     height: calc(100vh - 110px);
     background-image: url(../images/index/bg_main.jpg);

@@ -69,22 +69,17 @@ img {
     max-width: 100%;
 }
 
-.header {
-    background-image: url(../images/common/book1.png);
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 170px auto; /* 元の画像サイズに合わせる */
-}
+
 
 .header-inner {
     max-width: 1200px;
     height: 110px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 200px; /* 背景画像の幅分だけ左パディングを追加 */
+    padding-left: 40px; /* 200px から 40px に戻す */
     padding-right: 40px;
     display: flex;
-    justify-content: flex-start; /* space-between から flex-start に変更 */
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -163,4 +158,155 @@ img {
     font-size: 14pt;
     font-weight: bold;
     margin-top: 90px;
+}
+
+.main {
+    background-image: url(../images/index/star_night.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: calc(100vh - 110px); /* ヘッダーの高さを引いた値 */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 110px);
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 10px #000000;
+}
+
+.main-content h1 {
+    font-family: 'WDXL Lubrifont JP N', sans-serif;
+    font-size: 56px;
+    line-height: 72px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* モバイル対応（スマートフォン） */
+@media (max-width: 768px) {
+    /* ヘッダー */
+    .header-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 80px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .header-logo {
+        width: 120px;
+        margin-bottom: 10px;
+    }
+
+    .site-menu ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .site-menu ul li {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .site-menu ul li a {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    /* メインコンテンツ */
+    .main {
+        min-height: calc(100vh - 80px);
+        padding: 30px 0;
+    }
+
+    .main-content {
+        padding: 0 20px;
+        min-height: calc(100vh - 80px);
+    }
+
+    .main-content h1 {
+        font-size: 36px;
+        line-height: 48px;
+        margin-bottom: 15px;
+    }
+
+    .main-content p {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    /* フッター */
+    .footer {
+        padding: 20px;
+    }
+
+    .footer .site-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .footer .site-menu ul li {
+        margin: 0;
+    }
+
+    .footer-logo {
+        width: 180px;
+        margin-top: 30px;
+    }
+
+    .copyright {
+        font-size: 12px;
+        margin-top: 30px;
+        text-align: center;
+    }
+}
+
+/* 小さなモバイル画面対応 */
+@media (max-width: 480px) {
+    .header-inner {
+        height: 100px;
+        padding: 10px 15px;
+    }
+
+    .header-logo {
+        width: 100px;
+    }
+
+    .site-menu ul li a {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .main-content h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .main-content p {
+        font-size: 14px;
+    }
+
+    .footer-logo {
+        width: 150px;
+        margin-top: 25px;
+    }
+
+    .copyright {
+        font-size: 11px;
+        margin-top: 25px;
+    }
 }
