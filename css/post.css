@@ -141,7 +141,21 @@ img {
 
 
 .toggle-menu-button {
-    display: none; /* 常に非表示 */
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    background-image: url('../images/common/icon-menu.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.toggle-menu-button:hover {
+    opacity: 0.7;
 }
 
 .header-logo {
