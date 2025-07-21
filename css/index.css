@@ -69,7 +69,24 @@ img {
     max-width: 100%;
 }
 
-
+/* ハンバーガーメニューボタンの左詰め・上下均等配置 */
+@media (max-width: 768px) {
+    .header-inner {
+        justify-content: flex-start;
+        position: relative;
+        height: 70px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .toggle-menu-button {
+        position: relative;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: auto;
+    }
+}
 
 .header-inner {
     max-width: 1200px;
